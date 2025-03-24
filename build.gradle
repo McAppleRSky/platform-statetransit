@@ -16,7 +16,8 @@ repositories {
 }
 
 dependencies {
-	compileOnly 'com.google.code.findbugs:jsr305:3.0.2'
+//	compileOnly "org.jetbrains:annotations:21.0.1"
+	compileOnly 'com.google.code.findbugs:jsr305:3.0.2' // notNull
 	compileOnly "org.projectlombok:lombok:1.18.36"
 	compileOnly "org.mapstruct:mapstruct:1.6.3"
 	annotationProcessor 'org.projectlombok:lombok', 'org.mapstruct:mapstruct-processor:1.6.3', 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
@@ -25,7 +26,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation files('lib/h2-2.2.224.jar')
+//	implementation files('lib/h2-2.2.224.jar')
+	implementation "org.postgresql:postgresql"
 	implementation "org.flywaydb:flyway-core:9.22.3"
 	testCompileOnly 'org.projectlombok:lombok'
 	testAnnotationProcessor 'org.projectlombok:lombok'
