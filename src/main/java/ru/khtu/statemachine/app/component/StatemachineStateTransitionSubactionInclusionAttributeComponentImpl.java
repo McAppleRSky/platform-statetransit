@@ -2,6 +2,7 @@ package ru.khtu.statemachine.app.component;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import ru.khtu.statemachine.app.data.helper.StateTransitionSubactionHelper;
 import ru.khtu.statemachine.app.mapper.StateTransitSubactionAttributeMapperDto;
 import ru.khtu.statemachine.app.mapper.StateTransitSubactionInclusionMapperDto;
@@ -20,6 +21,7 @@ public class StatemachineStateTransitionSubactionInclusionAttributeComponentImpl
     private final StateTransitSubactionAttributeMapperDto stateTransitSubactionAttributeMapper;
 
     @Override
+//    @Transactional(readOnly = true)
     public void getByStateTransitionsSubactionAndPut(StateTransitionSubactionHelper stateTransitionSubaction) {
         stateTransitionSubaction.setStateTransitionSubactionInclusionDto(
                 stateTransitSubactionInclusionMapper.toDtos(

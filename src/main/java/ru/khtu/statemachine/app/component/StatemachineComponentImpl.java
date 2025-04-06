@@ -3,6 +3,7 @@ package ru.khtu.statemachine.app.component;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import ru.khtu.statemachine.app.data.dto.StateDto;
 import ru.khtu.statemachine.app.constant.enums.WorkObject;
 import ru.khtu.statemachine.app.data.helper.StateTransitionHelper;
@@ -26,6 +27,8 @@ public class StatemachineComponentImpl implements StatemachineComponent {
     private final StateTransitionRepository stateTransitionRepository;
     private final StatemachineStateTransitionSubactionComponent statemachineStateTransitionSubactionComponent;
 
+    @Override
+//    @Transactional(readOnly = true)
     public Map.Entry<List<StateDto>, List<StateTransitionHelper>> getStateTransition(WorkObject workObject) {
         List<StateDto> state = stateMapper.toDtos(
                 stateRepository.findByWoName(workObject.getString()) );
